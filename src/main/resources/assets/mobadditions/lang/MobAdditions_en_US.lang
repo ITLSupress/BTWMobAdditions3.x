@@ -1,0 +1,56 @@
+# Items
+
+item.glowInkSacItem.name=Glow Ink Sac
+item.lavaInkSacItem.name=Lava Ink Sac
+
+item.glowPowderItem.name=Glow Powder
+item.lavaPowderItem.name=Lava Powder
+
+item.glowPasteItem.name=Glow Paste
+item.lavaPasteItem.name=Lava Paste
+
+item.cookedFoxChopItem.name=Cooked Foxchop
+item.rawFoxChopItem.name=Raw Foxchop
+item.sinewExtractingFoxItem.name=Sinew Extracting
+
+
+item.cookedChevalItem.name=Cooked Cheval
+item.rawChevalItem.name=Raw Cheval
+
+item.horseArmorDiamond.name=Diamond Horse Armor
+item.horseArmorGold.name=Gold Horse Armor
+item.horseArmorIron.name=Iron Horse Armor
+
+# Blocks
+
+tile.hayBlock.name=Hay Block
+
+tile.glowInkBlock.name=Glow Ink Block
+tile.lavaInkBlock.name=Lava Ink Block
+
+tile.foxCompanionCube.cube.name=Companion Cube
+tile.foxCompanionCube.slab.name=Companion Slab
+
+# Mobs
+
+entity.ashenwolfEntity.name=Ashen Wolf
+entity.blackwolfEntity.name=Black Wolf
+entity.chestnutwolfEntity.name=Chestnut Wolf
+entity.rustywolfEntity.name=Rusty Wolf
+entity.snowywolfEntity.name=Snowy Wolf
+entity.spottedwolfEntity.name=Spotted Wolf
+entity.stripedwolfEntity.name=Striped Wolf
+entity.woodswolfEntity.name=Woods Wolf
+
+entity.foxEntity.name=Fox
+entity.arcticFoxEntity.name=Arctic Fox
+
+entity.glowsquidEntity.name=Glow Squid
+entity.lavasquidEntity.name=Lava Squid
+
+entity.horseEntity.name=Horse
+entity.horse.name=Horse
+entity.donkey.name=Donkey
+entity.mule.name=Mule
+entity.zombiehorse.name=Zombie Horse
+entity.skeletonhorse.name=Skeleton Horse
