@@ -3,8 +3,6 @@ package com.itlesports.mobadditions;
 import btw.AddonHandler;
 import btw.BTWAddon;
 import com.itlesports.mobadditions.block.ModBlocks;
-import com.itlesports.mobadditions.entity.ModEntities;
-import com.itlesports.mobadditions.entity.ModRenderMapper;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.GlowSquidEntity;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.LavaSquidEntity;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.RenderGlowSquid;
@@ -12,10 +10,6 @@ import com.itlesports.mobadditions.entity.mob.fox.ArcticFoxEntity;
 import com.itlesports.mobadditions.entity.mob.fox.FoxEntity;
 import com.itlesports.mobadditions.entity.mob.wolf.*;
 import com.itlesports.mobadditions.item.ModItems;
-import com.itlesports.mobadditions.recipe.CauldronRecipeList;
-import com.itlesports.mobadditions.recipe.CraftingRecipeList;
-import com.itlesports.mobadditions.recipe.MillstoneRecipeList;
-import com.itlesports.mobadditions.recipe.SmeltingRecipeList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.src.*;
@@ -31,6 +25,8 @@ public class MobAdditions extends BTWAddon {
         AddonHandler.logMessage(this.getName() + " Version " + this.getVersionString() + " Initializing...");
         AddBiomeSpawn();
         AddEntityRenderer();
+        ModBlocks.registerModBlocks();
+        ModItems.registerModItems();
     }
     @Override
     public void handleConfigProperties(Map<String, String> propertyValues) {
