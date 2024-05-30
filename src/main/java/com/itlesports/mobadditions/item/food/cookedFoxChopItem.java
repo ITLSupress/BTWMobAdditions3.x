@@ -15,6 +15,6 @@ public class cookedFoxChopItem extends FoodItem {
     @Environment(EnvType.CLIENT)
     public void registerIcons( IconRegister register )
     {
-        itemIcon = register.registerIcon("porkchopCooked");
+        itemIcon = register.registerIcon("btw:cooked_wolfchop");
     }
 }
