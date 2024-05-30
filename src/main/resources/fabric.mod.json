@@ -32,7 +32,7 @@
     "mobadditions.mixins.json"
   ],
   "custom": {
-    "mobadditions:addon_prefix": "MobAdditions"
+    "btw:addon_prefix": "mobadditions"
   },
   "depends": {
     "fabricloader": ">=0.14.9",
