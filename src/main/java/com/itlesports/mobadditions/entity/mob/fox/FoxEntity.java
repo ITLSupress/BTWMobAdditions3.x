@@ -1,19 +1,15 @@
 package com.itlesports.mobadditions.entity.mob.fox;
 
-import btw.entity.mob.*;
 import btw.entity.mob.behavior.*;
 import btw.item.BTWItems;
 import com.itlesports.mobadditions.entity.mob.fox.ai.EntityAISleep;
-import com.itlesports.mobadditions.entity.mob.wolf.ChestnutWolfEntity;
 import com.itlesports.mobadditions.item.ModItems;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.src.*;
 
 public class FoxEntity extends EntityWolf {
     protected EntityAISleep aiSleep = new EntityAISleep(this);
-    private static final float MOVE_SPEED_AGGRESSIVE = 0.45F;
-    private static final float MOVE_SPEED_PASSIVE = 0.3F;
+    private static final float MOVE_SPEED_AGGRESSIVE = 1.0F;
+    private static final float MOVE_SPEED_PASSIVE = 0.75F;
     public FoxEntity(World world) {
         super(world);
 

@@ -1,17 +1,14 @@
 package com.itlesports.mobadditions.entity.mob.fox;
 
-import btw.entity.mob.*;
 import btw.entity.mob.behavior.*;
 import btw.item.BTWItems;
 import com.itlesports.mobadditions.item.ModItems;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.src.*;
 
 public class ArcticFoxEntity extends EntityWolf {
     private static boolean SLEEPING_FLAG = false;
-    private static final float MOVE_SPEED_AGGRESSIVE = 0.45F;
-    private static final float MOVE_SPEED_PASSIVE = 0.3F;
+    private static final float MOVE_SPEED_AGGRESSIVE = 1.0F;
+    private static final float MOVE_SPEED_PASSIVE = 0.75F;
     public ArcticFoxEntity(World world) {
         super(world);
 

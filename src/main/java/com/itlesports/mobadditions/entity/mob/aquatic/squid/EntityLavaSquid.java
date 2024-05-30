@@ -8,6 +8,7 @@ import btw.inventory.util.InventoryUtils;
 import btw.item.BTWItems;
 import btw.network.packet.BTWPacketManager;
 import btw.world.util.WorldUtils;
+import com.itlesports.mobadditions.entity.mob.aquatic.squid.util.EntityLavaMob;
 import net.minecraft.src.*;
 
 import java.io.ByteArrayOutputStream;

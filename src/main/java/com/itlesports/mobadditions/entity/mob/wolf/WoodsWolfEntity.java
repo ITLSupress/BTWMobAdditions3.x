@@ -1,35 +1,12 @@
 package com.itlesports.mobadditions.entity.mob.wolf;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.src.*;
 
 public class WoodsWolfEntity extends EntityWolf {
 
     public WoodsWolfEntity(World world) {
         super(world);
-        //this.texture = "/mobadditions/entity/mob/wolf/woodswolf.png";
     }
-/*
-    @Override
-    @Environment(EnvType.CLIENT)
-    public String getTexture() {
-        if (isTamed()) {
-            if (isStarving()) {
-                return "/mobadditions/entity/mob/wolf/woodswolf_starving.png";
-            }
-
-            return "/mobadditions/entity/wolf/woodswolf_tame.png";
-        } else if (isAngry()) {
-            return "/mobadditions/entity/mob/wolf/woodswolf_angry.png";
-        } else if (isStarving() || hasAttackTarget()) {
-            return "/mobadditions/entity/mob/wolf/woodswolf_starving.png";
-        }
-
-        return texture; // intentionally bypass super method
-    }
-
- */
     @Override
     public boolean canMateWith(EntityAnimal par1EntityAnimal)
     {

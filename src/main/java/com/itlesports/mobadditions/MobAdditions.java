@@ -7,7 +7,7 @@ import com.itlesports.mobadditions.entity.ModEntities;
 import com.itlesports.mobadditions.entity.ModRenderMapper;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.GlowSquidEntity;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.LavaSquidEntity;
-import com.itlesports.mobadditions.entity.mob.aquatic.squid.RenderGlowSquid;
+import com.itlesports.mobadditions.entity.mob.aquatic.squid.render.RenderGlowSquid;
 import com.itlesports.mobadditions.entity.mob.fox.ArcticFoxEntity;
 import com.itlesports.mobadditions.entity.mob.fox.FoxEntity;
 import com.itlesports.mobadditions.entity.mob.wolf.*;
