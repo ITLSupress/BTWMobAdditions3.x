@@ -11,6 +11,6 @@ public class PreLaunchInitializer implements PreLaunchEntrypoint {
      */
     @Override
     public void onPreLaunch() {
-        MobAdditions.getInstance();
+
     }
 }

@@ -19,19 +19,21 @@
   "environment": "*",
   "entrypoints": {
     "init": [
-      "com.itlesports.mobadditions.init.MobAdditionsInitializer"
     ],
     "preLaunch": [
-      "com.itlesports.mobadditions.init.PreLaunchInitializer"
     ],
     "client": [
-      "com.itlesports.mobadditions.init.MobAdditionsClientInitializer"
+    ],
+    "btw:addon": [
+     "com.itlesports.mobadditions.MobAdditions"
     ]
   },
   "mixins": [
     "mobadditions.mixins.json"
   ],
-
+  "custom": {
+    "mobadditions:addon_prefix": "MobAdditions"
+  },
   "depends": {
     "fabricloader": ">=0.14.9",
     "minecraft": "1.6.4"

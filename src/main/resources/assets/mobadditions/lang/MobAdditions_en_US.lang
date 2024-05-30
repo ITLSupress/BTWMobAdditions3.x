@@ -13,17 +13,7 @@ item.cookedFoxChopItem.name=Cooked Foxchop
 item.rawFoxChopItem.name=Raw Foxchop
 item.sinewExtractingFoxItem.name=Sinew Extracting
 
-
-item.cookedChevalItem.name=Cooked Cheval
-item.rawChevalItem.name=Raw Cheval
-
-item.horseArmorDiamond.name=Diamond Horse Armor
-item.horseArmorGold.name=Gold Horse Armor
-item.horseArmorIron.name=Iron Horse Armor
-
 # Blocks
-
-tile.hayBlock.name=Hay Block
 
 tile.glowInkBlock.name=Glow Ink Block
 tile.lavaInkBlock.name=Lava Ink Block
@@ -47,10 +37,3 @@ entity.arcticFoxEntity.name=Arctic Fox
 
 entity.glowsquidEntity.name=Glow Squid
 entity.lavasquidEntity.name=Lava Squid
-
-entity.horseEntity.name=Horse
-entity.horse.name=Horse
-entity.donkey.name=Donkey
-entity.mule.name=Mule
-entity.zombiehorse.name=Zombie Horse
-entity.skeletonhorse.name=Skeleton Horse

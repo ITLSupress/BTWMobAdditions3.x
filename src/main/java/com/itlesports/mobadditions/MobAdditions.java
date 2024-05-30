@@ -3,6 +3,8 @@ package com.itlesports.mobadditions;
 import btw.AddonHandler;
 import btw.BTWAddon;
 import com.itlesports.mobadditions.block.ModBlocks;
+import com.itlesports.mobadditions.entity.ModEntities;
+import com.itlesports.mobadditions.entity.ModRenderMapper;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.GlowSquidEntity;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.LavaSquidEntity;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.RenderGlowSquid;
@@ -10,23 +12,80 @@ import com.itlesports.mobadditions.entity.mob.fox.ArcticFoxEntity;
 import com.itlesports.mobadditions.entity.mob.fox.FoxEntity;
 import com.itlesports.mobadditions.entity.mob.wolf.*;
 import com.itlesports.mobadditions.item.ModItems;
+import com.itlesports.mobadditions.recipe.CauldronRecipeList;
+import com.itlesports.mobadditions.recipe.CraftingRecipeList;
+import com.itlesports.mobadditions.recipe.MillstoneRecipeList;
+import com.itlesports.mobadditions.recipe.SmeltingRecipeList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.loader.api.ModContainer;
+import net.fabricmc.loader.api.metadata.ModMetadata;
 import net.minecraft.src.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
 public class MobAdditions extends BTWAddon {
+    protected ModContainer parentMod;
+    protected String addonName;
+    protected String versionString;
+    protected String modID;
+    protected boolean isRequiredClientAndServer = false;
+
+    public MobAdditions() {
+    }
+
+    final void setup(@NotNull ModContainer mod){
+        this.parentMod  = mod;
+        AddonHandler.addMod(this);
+        ModMetadata meta = mod.getMetadata();
+        this.addonName = meta.getName();
+        this.versionString = meta.getVersion().getFriendlyString();
+        this.modID = meta.getId();
+        this.isRequiredClientAndServer = true;
+    }
+    public String getName() {
+        return "Mob Additions CE 3.x";
+    }
+
+    public String getVersionString() {
+        return "0.1.0";
+    }
+
+    public String getModID() {
+        return "mobadditions";
+    }
 
     private static MobAdditions instance = new MobAdditions();
     private Map<String, String> propertyValues;
     @Override
+    public void preInitialize() {
+        MobAdditions.getInstance();
+    }
     public void initialize() {
         AddonHandler.logMessage(this.getName() + " Version " + this.getVersionString() + " Initializing...");
         AddBiomeSpawn();
         AddEntityRenderer();
-        ModBlocks.registerModBlocks();
+        AddonHandler.logMessage("Mob Additions Initializing...");
+        AddonHandler.logMessage("Mob Additions Initializing Items...");
         ModItems.registerModItems();
+        AddonHandler.logMessage("Mob Additions Items Initialized!");
+        AddonHandler.logMessage("Mob Addtions Initializing Blocks...");
+        ModBlocks.registerModBlocks();
+        AddonHandler.logMessage("Mob Additions Blocks Initialized!");
+        AddonHandler.logMessage("Mob Additions Initializing Recipes...");
+        CraftingRecipeList.addRecipes();
+        CauldronRecipeList.addRecipes();
+        MillstoneRecipeList.addRecipes();
+        SmeltingRecipeList.addRecipes();
+        AddonHandler.logMessage("Mob Additions Recipes Initialized");
+        AddonHandler.logMessage("Mob Additions Initializing Entites...");
+        ModEntities.createModEntityMappings();
+        AddonHandler.logMessage("Mob Additions Entities Initialized!");
+        AddonHandler.logMessage("Mob Additions Initializing Entity Renderers...!");
+        ModRenderMapper.createModEntityRenderers();
+        ModRenderMapper.createTileEntityRenderers();
+        AddonHandler.logMessage("Mob Additions Entity Renderers Initialized!");
     }
     @Override
     public void handleConfigProperties(Map<String, String> propertyValues) {
