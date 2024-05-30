@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "id": "mobadditions3",
+  "id": "backportedwolves",
   "version": "${version}",
 
-  "name": "Mob Additions",
-  "description": "Backporting some new mobs to Better than Wolves!",
+  "name": "Backported Wolves",
+  "description": "Backporting the new wolves to Better than Wolves!",
   "authors": [
     "ITL Supress"
   ],
   "contact": {
     "homepage": "https://itlesports.com/",
-    "sources": "https://github.com/ITLSupress/BTWMobAdditions3/"
+    "sources": "https://github.com/ITLSupress/BackportedWolves/"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/mobadditions/icon.png",
+  "icon": "assets/backportedwolves/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -25,14 +25,14 @@
     "client": [
     ],
     "btw:addon": [
-     "com.itlesports.mobadditions.MobAdditions"
+     "com.itlesports.backportedwolves.BackportedWolves"
     ]
   },
   "mixins": [
-    "mobadditions.mixins.json"
+    "backportedwolves.mixins.json"
   ],
   "custom": {
-    "btw:addon_prefix": "mobadditions"
+    "btw:addon_prefix": "backportedwolves"
   },
   "depends": {
     "fabricloader": ">=0.14.9",
