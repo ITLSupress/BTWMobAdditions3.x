@@ -12,12 +12,12 @@ import org.lwjgl.opengl.GL11;
 @Environment(EnvType.CLIENT)
 public class RenderArcticFox extends RenderLiving
 {
-    private static final ResourceLocation FOX_DO_NOT_WORRY_TEXTURES = new ResourceLocation("mobadditons:entity/mob/fox/arcticfox_angry.png");
-    private static final ResourceLocation FOX_WILD_STARVING_TEXTURES = new ResourceLocation("mobadditons:entity/mob/fox/arcticfox_wild_starving.png");
-    private static final ResourceLocation FOX_TAME_STARVING_TEXTURES = new ResourceLocation("mobadditions:entity/mob/fox/arcticfox_tame_starving.png");
-    protected static final ResourceLocation foxTextures = new ResourceLocation("mobadditions:entity/mob/fox/arcticfox.png");
-    protected static final ResourceLocation tamedFoxTextures = new ResourceLocation("mobadditions:/entity/fox/arcticfox_tame.png");
-    protected static final ResourceLocation angryFoxTextures = new ResourceLocation("mobadditions:entity/fox/arcticfox_angry.png");
+    private static final ResourceLocation FOX_DO_NOT_WORRY_TEXTURES = new ResourceLocation("entity/mob/fox/arcticfox_angry.png");
+    private static final ResourceLocation FOX_WILD_STARVING_TEXTURES = new ResourceLocation("entity/mob/fox/arcticfox_wild_starving.png");
+    private static final ResourceLocation FOX_TAME_STARVING_TEXTURES = new ResourceLocation("entity/mob/fox/arcticfox_tame_starving.png");
+    protected static final ResourceLocation foxTextures = new ResourceLocation("entity/mob/fox/arcticfox.png");
+    protected static final ResourceLocation tamedFoxTextures = new ResourceLocation("entity/fox/arcticfox_tame.png");
+    protected static final ResourceLocation angryFoxTextures = new ResourceLocation("entity/fox/arcticfox_angry.png");
     protected static final ResourceLocation wolfCollarTextures = new ResourceLocation("textures/entity/wolf/arcticwolf_collar.png");
 
     public RenderArcticFox(ModelBase par1ModelBase, ModelBase par2ModelBase, float par3)

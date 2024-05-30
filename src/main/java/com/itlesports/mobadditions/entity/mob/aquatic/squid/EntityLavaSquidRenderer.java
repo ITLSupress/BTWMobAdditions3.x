@@ -10,7 +10,7 @@ import org.lwjgl.opengl.GL12;
 @Environment(EnvType.CLIENT)
 public class EntityLavaSquidRenderer extends RenderLiving
 {
-    private static final ResourceLocation SQUID_TEXTURES = new ResourceLocation("mobadditions:entity/mob/aquatic/lavasquid.png");
+    private static final ResourceLocation SQUID_TEXTURES = new ResourceLocation("entity/mob/aquatic/lavasquid.png");
     SquidTentacleModel tentacleAttackModel = new SquidTentacleModel();
 
     public EntityLavaSquidRenderer()
