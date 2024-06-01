@@ -5,9 +5,9 @@
 
 package com.itlesports.mobadditions.entity.mob.rideable.model;
 
-import net.minecraft.src.Entity;
-import net.minecraft.src.ModelBase;
-import net.minecraft.src.ModelRenderer;
+import btw.entity.mob.KickingAnimal;
+import com.itlesports.mobadditions.entity.mob.rideable.GoatEntity;
+import net.minecraft.src.*;
 
 public class GoatEntityModel extends ModelBase {
 	private final ModelRenderer left_back_leg;
@@ -45,7 +45,7 @@ public class GoatEntityModel extends ModelBase {
 		this.body.setTextureOffset(0, 28).addBox(-5.0F, -18.0F, -8.0F, 11, 14, 11, 0.0F);
 
 		Head = new ModelRenderer(this);
-		Head.setRotationPoint(1.0F, 14.0F, 0.0F);
+		Head.setRotationPoint(1.0F, 6.0F, 0.0F);
 		setRotation(Head, -0.1047F, 0.0873F, 0.0F);
 		this.Head.setTextureOffset(12, 55).addBox(-2.99F, -16.0F, -10.0F, 2, 7, 2, 0.0F);
 		this.Head.setTextureOffset(12, 55).addBox(-0.01F, -16.0F, -10.0F, 2, 7, 2, 0.0F);
@@ -85,17 +85,54 @@ public class GoatEntityModel extends ModelBase {
 	* and legs, where f represents the time(so that arms and legs swing back and forth) and f1 represents how
 	* "far" arms and legs can swing at most.
 	*/
-	@Override
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-
-    }
 	
 	/**
 	*	Sets the rotation of a ModelRenderer. Only called if the ModelRenderer has a rotation
 	*/
+	private float headRotation;
     public void setRotation(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
+	}
+	@Override
+	public void setLivingAnimations(EntityLivingBase entity, float par2, float par3, float fPartialTick)
+	{
+		super.setLivingAnimations( entity, par2, par3, fPartialTick );
+
+		GoatEntity cow = (GoatEntity) entity;
+
+		Head.rotationPointY = 2F + cow.getGrazeHeadVerticalOffset(fPartialTick) * 4F;
+
+		headRotation = cow.getGrazeHeadRotation(fPartialTick);
+	}
+
+	public void setRotationAngles(float par1, float par2, float par3,
+								  float par4, float par5, float par6, Entity entity)
+	{
+		super.setRotationAngles(par1, par2, par3, par4, par5, par6, entity);
+
+		adjustRotationAnglesForKickAttack(entity);
+
+		Head.rotateAngleX = headRotation;
+	}
+
+	private void adjustRotationAnglesForKickAttack(Entity entity) {
+		KickingAnimal cow = (KickingAnimal) entity;
+
+		if (cow != null) {
+			int iAttackProgressCounter = cow.kickAttackInProgressCounter;
+
+			if (iAttackProgressCounter > 0) {
+				float fRotationFactor = 2F;
+
+				if (cow.kickAttackLegUsed == 0) {
+					left_back_leg.rotateAngleX = MathHelper.cos((float) Math.PI * fRotationFactor) * 1.4F;
+				}
+				else {
+					right_back_leg.rotateAngleX = MathHelper.cos((float) Math.PI * fRotationFactor) * 1.4F;
+				}
+			}
+		}
 	}
 }

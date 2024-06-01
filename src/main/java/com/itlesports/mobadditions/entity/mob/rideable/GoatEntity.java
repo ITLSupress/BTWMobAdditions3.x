@@ -175,7 +175,7 @@ public class GoatEntity extends KickingAnimal {
 
     @Override
     public float getGrazeHeadRotationRateMultiplier() {
-        return 28.7F * 1.75F;
+        return 26.7F * 1.75F;
     }
 
     @Override
@@ -194,7 +194,10 @@ public class GoatEntity extends KickingAnimal {
     @Override
     public boolean interact(EntityPlayer player) {
         ItemStack stack = player.inventory.getCurrentItem();
-        if (this.getSaddled() && !this.worldObj.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player))
+        if (super.interact(player)) {
+            return true;
+        }
+        else if (this.getSaddled() && !this.worldObj.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player))
         {
             player.mountEntity(this);
             return true;
@@ -293,7 +296,7 @@ public class GoatEntity extends KickingAnimal {
 
     @Override
     public boolean canGrazeMycelium() {
-        return true;
+        return false;
     }
 
     @Override
