@@ -109,7 +109,7 @@ public class ArcticFoxEntityModel extends ModelBase {
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
     }
-    public void setLivingAnimations(EntityLiving par1EntityLiving, float par2, float par3, float par4) {
+    public void setLivingAnimations(EntityLivingBase par1EntityLiving, float par2, float par3, float par4) {
         ArcticFoxEntity var5 = (ArcticFoxEntity)par1EntityLiving;
         if (var5.isAngry()|| var5.isWildAndHostile() )
         {

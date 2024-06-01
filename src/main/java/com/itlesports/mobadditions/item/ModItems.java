@@ -3,10 +3,7 @@ package com.itlesports.mobadditions.item;
 import btw.item.BTWItems;
 import btw.item.items.SinewExtractingItem;
 import com.itlesports.mobadditions.item.blockitem.FoxCompanionCubeItemBlock;
-import com.itlesports.mobadditions.item.food.cookedFoxChopItem;
-import com.itlesports.mobadditions.item.food.goatCookedItem;
-import com.itlesports.mobadditions.item.food.goatRawItem;
-import com.itlesports.mobadditions.item.food.rawFoxChopItem;
+import com.itlesports.mobadditions.item.food.*;
 import com.itlesports.mobadditions.item.squid.*;
 import net.minecraft.src.*;
 
@@ -22,6 +19,7 @@ public class ModItems extends BTWItems {
     public static Item lavaPaste;
     public static Item goatRaw;
     public static Item goatCooked;
+    public static Item potatoOnAStick;
     public static void registerModItems() {
         rawFoxChop = new rawFoxChopItem(700,4, 0.25F, true, "rawFoxChopItem", true );
         cookedFoxChop = new cookedFoxChopItem(701,5, 0.25F, true, "cookedFoxChopItem", false );
@@ -39,6 +37,7 @@ public class ModItems extends BTWItems {
 
         goatRaw = new goatRawItem(711, 6, 0.25F, false, "goatRawItem", true);
         goatCooked = new goatCookedItem(712, 12, 0.45F, false, "goatCookedItem", false);
+        potatoOnAStick = new potatoOnAStickItem(713);
 
         ModItems.createAssociatedItemsForModBlocks();
     }

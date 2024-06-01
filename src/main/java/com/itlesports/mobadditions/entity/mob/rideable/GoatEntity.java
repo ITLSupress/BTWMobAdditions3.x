@@ -16,11 +16,13 @@ public class GoatEntity extends KickingAnimal {
     protected static final int GOT_MILK_DATA_WATCHER_ID = 26;
     private static final int FULL_MILK_ACCUMULATION_COUNT = MiscUtils.TICKS_PER_GAME_DAY;
     private int milkAccumulationCount = 0;
+    private final EntityAIControlledByPlayer aiControlledByPlayer;
 
     public GoatEntity(World par1World) {
         super(par1World);
         this.setSize(0.9F, 1.4F);
         this.getNavigator().setAvoidsWater(true);
+
 
         tasks.addTask(0, new EntityAISwimming(this));
         tasks.addTask(1, new AnimalFleeBehavior(this, 2.2F));
@@ -34,12 +36,19 @@ public class GoatEntity extends KickingAnimal {
         tasks.addTask(9, new EntityAIWatchClosest(this, EntityPlayer.class, 6F));
         tasks.addTask(10, new EntityAILookIdle(this));
         tasks.addTask(11, new EntityAIRam());
+        this.tasks.addTask(12, this.aiControlledByPlayer = new EntityAIControlledByPlayer(this, 0.3F));
     }
 
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(12.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.20000000298023224D);
+    }
+
+    public boolean canBeSteered()
+    {
+        ItemStack var1 = ((EntityPlayer)this.riddenByEntity).getHeldItem();
+        return var1 != null && var1.itemID == ModItems.potatoOnAStick.itemID;
     }
 
     @Override
@@ -80,6 +89,7 @@ public class GoatEntity extends KickingAnimal {
     protected void entityInit() {
         super.entityInit();
         dataWatcher.addObject(GOT_MILK_DATA_WATCHER_ID, (byte) 0);
+        this.dataWatcher.addObject(16, (byte) 0);
     }
 
     @Override
@@ -88,11 +98,14 @@ public class GoatEntity extends KickingAnimal {
 
         par1NBTTagCompound.setBoolean("fcGotMilk", gotMilk());
         par1NBTTagCompound.setInteger("fcMilkCount", milkAccumulationCount);
+        par1NBTTagCompound.setBoolean("Saddle", this.getSaddled());
     }
 
     @Override
     public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readEntityFromNBT(par1NBTTagCompound);
+
+        this.setSaddled(par1NBTTagCompound.getBoolean("Saddle"));
 
         if (par1NBTTagCompound.hasKey("fcGotMilk")) {
             setGotMilk(par1NBTTagCompound.getBoolean("fcGotMilk"));
@@ -108,6 +121,9 @@ public class GoatEntity extends KickingAnimal {
     }
     @Override
     protected void dropFewItems(boolean killedByPlayer, int lootingModifier) {
+        if (getSaddled()) {
+            dropItem(Item.saddle.itemID, 1);
+        }
         if (!isStarving()) {
             int numDrops = rand.nextInt(3) + rand.nextInt(1 + lootingModifier) + 1;
 
@@ -142,6 +158,35 @@ public class GoatEntity extends KickingAnimal {
             }
         }
     }
+
+    @Override
+    public int getFoodValueMultiplier() {
+        return 4;
+    }
+
+    @Override
+    public boolean getDisruptsEarthOnGraze() {
+        return true;
+    }
+    @Override
+    public float getGrazeHeadRotationMagnitudeDivisor() {
+        return 3F;
+    }
+
+    @Override
+    public float getGrazeHeadRotationRateMultiplier() {
+        return 28.7F * 1.75F;
+    }
+
+    @Override
+    public boolean canGrazeOnRoughVegetation() {
+        return true;
+    }
+
+    @Override
+    public int getGrazeDuration() {
+        return 80;
+    }
     @Override
     public boolean isBreedingItem(ItemStack stack) {
         return stack.itemID == Item.cake.itemID;
@@ -149,8 +194,17 @@ public class GoatEntity extends KickingAnimal {
     @Override
     public boolean interact(EntityPlayer player) {
         ItemStack stack = player.inventory.getCurrentItem();
-
+        if (this.getSaddled() && !this.worldObj.isRemote && (this.riddenByEntity == null || this.riddenByEntity == player))
+        {
+            player.mountEntity(this);
+            return true;
+        }
+        else if (!this.getSaddled() || !this.gotMilk())
+        {
+            return false;
+        }
         if (stack != null && stack.itemID == Item.bucketEmpty.itemID) {
+
             if (gotMilk()) {
                 stack.stackSize--;
 
@@ -169,15 +223,48 @@ public class GoatEntity extends KickingAnimal {
                     worldObj.playAuxSFX(BTWEffectManager.COW_MILKING_EFFECT_ID, MathHelper.floor_double(posX), (int) posY, MathHelper.floor_double(posZ), 0);
                 }
             }
+
+
             else if (this.worldObj.getDifficulty().canMilkingStartleCows()) {
                 attackEntityFrom(DamageSource.causePlayerDamage(player), 0);
             }
 
             return true;
+
+
         }
+
 
         // skip over EntityCow() super to avoid vanilla milking
         return entityAnimalInteract(player);
+
+    }
+    /**
+     * Returns true if the pig is saddled.
+     */
+    public boolean getSaddled()
+    {
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+    }
+
+    /**
+     * Set or remove the saddle of the pig.
+     */
+    public void setSaddled(boolean par1)
+    {
+        if (par1)
+        {
+            this.dataWatcher.updateObject(16, (byte) 1);
+        }
+        else
+        {
+            this.dataWatcher.updateObject(16, (byte) 0);
+        }
+    }
+
+    public EntityAIControlledByPlayer getAIControlledByPlayer()
+    {
+        return this.aiControlledByPlayer;
     }
 
     @Override

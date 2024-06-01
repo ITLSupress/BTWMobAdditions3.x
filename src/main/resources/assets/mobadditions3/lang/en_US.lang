@@ -13,6 +13,10 @@ item.cookedFoxChopItem.name=Cooked Foxchop
 item.rawFoxChopItem.name=Raw Foxchop
 item.sinewExtractingFoxItem.name=Sinew Extracting
 
+item.goatRawItem.name=Goat Raw
+item.goatCookedItem.name=Goat Cooked
+item.potatoOnAStick.name=Potato on a Stick
+
 # Blocks
 
 tile.glowInkBlock.name=Glow Ink Block
@@ -37,3 +41,5 @@ entity.arcticFoxEntity.name=Arctic Fox
 
 entity.glowsquidEntity.name=Glow Squid
 entity.lavasquidEntity.name=Lava Squid
+
+entity.goatEntity.name=Goat
