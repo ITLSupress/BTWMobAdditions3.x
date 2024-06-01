@@ -37,13 +37,11 @@ public class RenderFox extends RenderLiving
         if (par2 == 0 && par1FoxEntity.getWolfShaking())
         {
             var4 = par1FoxEntity.getBrightness(par3) * par1FoxEntity.getShadingWhileShaking(par3);
-            //this.loadTexture(par1FoxEntity.getTexture());
             GL11.glColor3f(var4, var4, var4);
             return 1;
         }
         else if (par2 == 1 && par1FoxEntity.isTamed())
         {
-            //this.loadTexture(FakeResourceLocation.unwrap(MobRandomizer.randomTexture((Entity)par1FoxEntity, FakeResourceLocation.wrap("/mob/wolf_collar.png"))));
             var4 = 1.0F;
             int var5 = par1FoxEntity.getCollarColor();
             GL11.glColor3f(var4 * ColorizeEntity.getWolfCollarColor(EntitySheep.fleeceColorTable[var5], var5)[0], var4 * ColorizeEntity.getWolfCollarColor(EntitySheep.fleeceColorTable[var5], var5)[1], var4 * ColorizeEntity.getWolfCollarColor(EntitySheep.fleeceColorTable[var5], var5)[2]);

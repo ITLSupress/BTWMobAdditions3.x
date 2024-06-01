@@ -4,6 +4,7 @@ import com.itlesports.mobadditions.entity.mob.aquatic.squid.LavaSquidEntity;
 import com.itlesports.mobadditions.entity.mob.fox.ArcticFoxEntity;
 import com.itlesports.mobadditions.entity.mob.fox.FoxEntity;
 import com.itlesports.mobadditions.entity.mob.aquatic.squid.GlowSquidEntity;
+import com.itlesports.mobadditions.entity.mob.rideable.GoatEntity;
 import com.itlesports.mobadditions.entity.mob.wolf.*;
 
 import net.minecraft.src.EntityList;
@@ -21,7 +22,7 @@ public class ModEntities {
     public static int LavaSquidEntityID = 709;
     public static int FoxEntityID = 710;
     public static int ArcticFoxEntityID = 711;
-    public static int HorseEntityID = 712;
+    public static int GoatEntityID = 712;
     public static void createModEntityMappings() {
         EntityList.addMapping(AshenWolfEntity.class,"ashenwolfEntity", AshenWolfEntityID,0,0);
         EntityList.addMapping(BlackWolfEntity.class,"blackwolfEntity", BlackWolfEntityID,0,0);
@@ -36,5 +37,6 @@ public class ModEntities {
 
         EntityList.addMapping(GlowSquidEntity.class,"glowsquidEntity", GlowSquidEntityID,0x164f4e, 0x4ddaba);
         EntityList.addMapping(LavaSquidEntity.class,"lavasquidEntity", LavaSquidEntityID,0xa91313, 0xff7022);
+        EntityList.addMapping(GoatEntity.class, "goatEntity", GoatEntityID, 0, 0);
     }
 }

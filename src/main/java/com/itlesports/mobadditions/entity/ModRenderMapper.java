@@ -7,6 +7,9 @@ import com.itlesports.mobadditions.entity.mob.fox.model.ArcticFoxEntityModel;
 import com.itlesports.mobadditions.entity.mob.fox.model.FoxEntityModel;
 import com.itlesports.mobadditions.entity.mob.fox.render.ArcticFoxRenderer;
 import com.itlesports.mobadditions.entity.mob.fox.render.FoxRenderer;
+import com.itlesports.mobadditions.entity.mob.rideable.GoatEntity;
+import com.itlesports.mobadditions.entity.mob.rideable.model.GoatEntityModel;
+import com.itlesports.mobadditions.entity.mob.rideable.render.GoatEntityRenderer;
 import com.itlesports.mobadditions.entity.mob.wolf.*;
 import com.itlesports.mobadditions.entity.mob.wolf.render.*;
 import net.fabricmc.api.EnvType;
@@ -31,5 +34,6 @@ public class ModRenderMapper {
         RenderManager.addEntityRenderer(SpottedWolfEntity.class, new SpottedWolfRenderer(new ModelWolf(), new ModelWolf(), 0.5F));
         RenderManager.addEntityRenderer(StripedWolfEntity.class, new StripedWolfRenderer(new ModelWolf(), new ModelWolf(), 0.5F));
         RenderManager.addEntityRenderer(WoodsWolfEntity.class, new WoodsWolfRenderer(new ModelWolf(), new ModelWolf(), 0.5F));
+        RenderManager.addEntityRenderer(GoatEntity.class, new GoatEntityRenderer(new GoatEntityModel(), 1.0F));
     }
 }
